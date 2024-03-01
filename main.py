@@ -2,8 +2,8 @@
 
 class Exercice1:
     def list_copy(l):
-    lbis, lter = l, l[:]
-    return id(l), id(lbis), id(lter), type(l)
+        lbis, lter = l, l[:]
+        return id(l), id(lbis), id(lter), type(l)
 
     def elimulti(l):
         new = []
