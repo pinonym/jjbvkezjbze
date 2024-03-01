@@ -170,28 +170,18 @@ class Exercice8:
 ## -- Exercice 9 -- ##
 
 class Exercice9:
-    def fact(n):
-        return 1 if n == 1 else n * fact(n - 1)
-
-    def binom(n, k):
-        return fact(n) // (fact(k) - fact(n - k))
-
     def combin(n, k):
-        res = []
-        for _ in range(binom(n, k)):
-            skip = []
-            for __ in range(n - k):
-                for a in range(n):
-                    if not a in skip:
-                        skip.append(a)
-                        break
-            liste = []
-            for i in range(n):
-                if not i in skip:
-                    liste.append(i)
-            res.append(liste)
-
-        return res
+    result, stack, x = [], [], 0
+    while True:
+        if len(stack) == k:
+            result.append(stack[:])
+        if len(stack) == k or x == n:
+            if not stack:
+                return result
+            x = stack.pop() + 1
+        else:
+            stack.append(x)
+            x += 1
 
 if __name__ == "__main__":
 
