@@ -139,8 +139,59 @@ class Exercice7:
 ## -- Exercice 8 -- ##
 
 class Exercice8:
-    def __init__(self):
-        return
+    prems = [2, 3, 5]
+
+    def premier(n):
+        i = 1
+        while Exercice8.prems[-1] < n:
+            for j in (-1, 1):
+                if all((6 * i + j) % p != 0 for p in Exercice8.prems):
+                    Exercice8.prems.append(6 * i + j)
+            i += 1
+        return n in Exercice8.prems
+
+    def pdp(n):
+        if Exercice8.premier(n):
+            return n
+        for p in Exercice8.prems:
+            if n % p == 0:
+                return p
+
+    def pfp(n):
+        res = []
+        while n > 1:
+            p, q = Exercice8.pdp(n), 1
+            n //= p
+            while Exercice8.pdp(n) == p:
+                n, q = n // p, q + 1
+            res.append([p, q])
+        return res
+
+## -- Exercice 9 -- ##
+
+class Exercice9:
+    def fact(n):
+        return 1 if n == 1 else n * fact(n - 1)
+
+    def binom(n, k):
+        return fact(n) // (fact(k) - fact(n - k))
+
+    def combin(n, k):
+        res = []
+        for _ in range(binom(n, k)):
+            skip = []
+            for __ in range(n - k):
+                for a in range(n):
+                    if not a in skip:
+                        skip.append(a)
+                        break
+            liste = []
+            for i in range(n):
+                if not i in skip:
+                    liste.append(i)
+            res.append(liste)
+
+        return res
 
 if __name__ == "__main__":
 
