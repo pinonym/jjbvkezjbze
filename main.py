@@ -14,7 +14,7 @@ class Exercice1:
 
 ## -- Exercice 2 -- ##
 
-class System:
+class Exercice2:
     def __init__(self, matrix):
         self.matrix = matrix
         self.lines = len(matrix)
@@ -146,7 +146,7 @@ if __name__ == "__main__":
 
     ## -- Exercice 2 -- ##
 
-    sys = System([[0, 0, 0, 1, 1], [1, 1, 1, 1, 2], [8, 4, 2, 1, 9], [27, 9, 3, 1, 28]])
+    sys = Exercice2([[0, 0, 0, 1, 1], [1, 1, 1, 1, 2], [8, 4, 2, 1, 9], [27, 9, 3, 1, 28]])
     sys.show()
     sys.scale()
     sys.show()
